@@ -1,7 +1,9 @@
-let parser = require('./parser.js')
-let disassembler = require('./disassembler.js')
+let parser = require('./parser')
+let disassembler = require('./disassembler')
+let cpu = require('./cpu')
 
 module.exports = {
   parser,
-  disassembler
+  disassembler,
+  cpu
 }
