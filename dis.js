@@ -1,8 +1,14 @@
 let fs = require('fs')
 let { parser, disassembler } = require('./chip8')
 
+let rom = process.argv[2]
+if (!rom) {
+  console.log('specify a ROM to disassemble')
+  process.exit(1)
+}
+
 // read file and parse 2 bytes at a time
-let input = fs.createReadStream('BLINKY', {highWaterMark: 2})
+let input = fs.createReadStream(rom, {highWaterMark: 2})
 let i = 0x0
 
 input.on('data', (buffer) => {
